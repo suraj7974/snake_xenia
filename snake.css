@@ -1,28 +1,190 @@
-#gamecontainer{
+:root {
+    --primary-color: #2C3E50;
+    --secondary-color: #ECF0F1;
+    --accent-color: #E74C3C;
+    --p1-color: #3498DB;
+    --p2-color: #2ECC71;
+    --background: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+    margin-bottom: 2rem;
+}
+
+.player-info {
+    background: var(--primary-color);
+    padding: 1rem; 
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.player-info h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.p1 h2 { color: var(--p1-color); }
+.p2 h2 { color: var(--p2-color); }
+
+.controls {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.controls p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.score {
+    font-size: 2rem; 
+    font-weight: 600;
+}
+
+.p1-score { color: var(--p1-color); }
+.p2-score { color: var(--p2-color); }
+
+#gamecontainer {
     text-align: center;
 }
 
-#gameboard{
+#gameboard {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     border: 3px solid;
+    width: 400px;  
+    height: 400px; 
 }
 
-#score{
-    font-family: "permanent marker",cursive;
+#score {
+    font-family: "permanent marker", cursive;
     font-size: 100px;
 }
 
-body{
-    margin-top: 250px;
+#btn {
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-#btn{
-    font-family: "permanent marker",cursive;
-    font-size: 22px;
-    width: 100px;
-    height: 50px;
-    border: 4px solid;
-    border-radius: 15px;
-    cursor: pointer;
+#btn:hover {
+    transform: translateY(-2px);
+    background: #c0392b;
+}
 
+#btn:active {
+    transform: translateY(0);
+}
+
+.total-score {
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: var(--secondary-color);
+}
+
+.game-setup {
+    background: var(--primary-color);
+    padding: 1rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.time-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.time-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.time-btn:hover {
+    transform: translateY(-2px);
+    background: #c0392b;
+}
+
+.timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem; 
+}
+
+@media (max-width: 1024px) {
+    .game-wrapper {
+        flex-direction: column;
+    }
+    
+    .player-info {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    #gameboard {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
 }
 

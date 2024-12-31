@@ -3,18 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>snake xenia</title>
+    <title>Snake Xenia - Two Player Snake Game</title>
     <link rel="stylesheet" href="snake.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <center>
-  <div id="gamecontainer">
-  <canvas id="gameboard" width="500px" height="500px"></canvas>
-  <div id="score">0</div>
-  <button id="btn">RESET</button>
+    <div class="container">
+      <h1>Snake Xenia</h1>
 
-  </div>
-    </center>
-    <script type="module" src="snake.js"></script>
+      <div id="game-setup" class="game-setup">
+        <h2>Select Game Duration</h2>
+        <div class="time-options">
+          <button class="time-btn" data-time="60">1 Minute</button>
+          <button class="time-btn" data-time="120">2 Minutes</button>
+          <button class="time-btn" data-time="180">3 Minutes</button>
+          <button class="time-btn" data-time="300">5 Minutes</button>
+        </div>
+      </div>
+
+      <div id="game-container" class="game-wrapper" style="display: none">
+        <div class="player-info p1">
+          <h2>Player 1</h2>
+          <div class="controls">
+            <p>W A S D</p>
+          </div>
+          <div class="score p1-score">0</div>
+        </div>
+
+        <div id="gamecontainer">
+          <div id="timer" class="timer">00:00</div>
+          <canvas id="gameboard" width="400" height="400"></canvas>
+          <button id="btn">NEW GAME</button>
+        </div>
+
+        <div class="player-info p2">
+          <h2>Player 2</h2>
+          <div class="controls">
+            <p>↑ ← ↓ →</p>
+          </div>
+          <div class="score p2-score">0</div>
+        </div>
+      </div>
+      <div id="score" class="total-score"></div>
+    </div>
   </body>
+  <script src="snake.js"></script>
 </html>
