@@ -10,6 +10,7 @@ const unitsize = 25;
 let gameTime = 0;
 let timeRemaining = 0;
 let timerInterval;
+let gameLoopTimeout;
 
 
 const gameSetup = document.querySelector("#game-setup");
@@ -223,6 +224,7 @@ function updateTimerDisplay() {
 function endGame() {
     running = false;
     clearInterval(timerInterval);
+    clearTimeout(gameLoopTimeout); // Clear the game loop timeout
     displaygameover();
 }
 
@@ -234,7 +236,8 @@ function gamestart() {
 
 function nexttick() {
     if (running) {
-        setTimeout(() => {
+        clearTimeout(gameLoopTimeout); // Clear any existing timeout
+        gameLoopTimeout = setTimeout(() => {
             clearboard();
             drawfood();
             
@@ -326,7 +329,9 @@ function displaygameover() {
 }
 
 function resetgame() {
+    running = false;
     clearInterval(timerInterval);
+    clearTimeout(gameLoopTimeout); // Clear the game loop timeout
     gameSetup.style.display = 'block';
     gameContainer.style.display = 'none';
     snake1.score = 0;
